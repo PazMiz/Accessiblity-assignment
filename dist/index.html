@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Paz Accessibility Assignment</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentACar Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>RentACar Portal</h1>
+        <div class="nav-menu" role="navigation">
+            <div class="nav-item">
+                <span onclick="showContent('profile', this)" class="active" tabindex="0" role="link" aria-label="Go to Profile" onfocus="this.style.fontWeight='bold'" onblur="this.style.fontWeight='normal'">Profile</span>
+            </div>
+            <div class="nav-item">
+                <span onclick="showContent('bookings', this)" tabindex="0" role="link" aria-label="View Bookings" onfocus="this.style.fontWeight='bold'" onblur="this.style.fontWeight='normal'">Bookings</span>
+                <div class="sub-nav">
+                    <div class="sub-nav-item">
+                        <span onclick="showSubContent('upcoming', this)" tabindex="0" role="link" aria-label="View Upcoming Bookings" onfocus="this.style.fontWeight='bold'" onblur="this.style.fontWeight='normal'">Upcoming</span>
+                    </div>
+                    <div class="sub-nav-item">
+                        <span onclick="showSubContent('past', this)" tabindex="0" role="link" aria-label="View Past Bookings" onfocus="this.style.fontWeight='bold'" onblur="this.style.fontWeight='normal'">Past</span>
+                    </div>
+                    <div class="sub-nav-item">
+                        <span onclick="showSubContent('cancelled', this)" tabindex="0" role="link" aria-label="View Cancelled Bookings" onfocus="this.style.fontWeight='bold'" onblur="this.style.fontWeight='normal'">Cancelled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <h2 class="section-heading" tabindex="0">Welcome to RentACar</h2>
+        <div id="profile" class="content active" role="region" aria-labelledby="profile-heading">
+            <h3 id="profile-heading" tabindex="-1">Profile Information</h3>
+            <form action="#">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" tabindex="0" aria-describedby="full-name-help">
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" id="email-address" tabindex="0" aria-describedby="email-address-help">
+                </div>
+                <div class="form-group">
+                    <label for="about-me">About Me</label>
+                    <textarea id="about-me" rows="4" tabindex="0" aria-describedby="about-me-help"></textarea>
+                </div>
+                <button type="button" class="submit-btn" onclick="openModal()" tabindex="0" aria-label="Save Profile">Save</button>
+            </form>
+        </div>
+
+        <div id="bookings" class="content" role="region" aria-labelledby="bookings-heading">
+            <h3 id="bookings-heading" tabindex="-1">Current Bookings</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Car Model</th>
+                        <th>Pickup Date</th>
+                        <th>Dropoff Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Toyota Corolla</td>
+                        <td>March 15, 2023</td>
+                        <td>March 20, 2023</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>Honda Accord</td>
+                        <td>April 10, 2023</td>
+                        <td>April 15, 2023</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>Ford Mustang</td>
+                        <td>May 5, 2023</td>
+                        <td>May 10, 2023</td>
+                        <td>Cancelled</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="upcoming" class="sub-content" tabindex="0">
+                <h4 tabindex="-1">Upcoming Bookings</h4>
+                <p>Details about upcoming bookings...</p>
+            </div>
+            <div id="past" class="sub-content" tabindex="0">
+                <h4 tabindex="-1">Past Bookings</h4>
+                <p>Details about past bookings...</p>
+            </div>
+            <div id="cancelled" class="sub-content" tabindex="0">
+                <h4 tabindex="-1">Cancelled Bookings</h4>
+                <p>Details about cancelled bookings...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accessibility-toolbar">
+        <button id="toggleButton" class="floating-btn" tabindex="0" aria-label="Toggle Accessibility Options">
+            Accessibility Options
+        </button>
+
+        <div id="accessibilityOptions" class="accessibility-options">
+            <button id="blackBackgroundButton" tabindex="1" aria-label="Enable black background">
+                Black Background
+            </button>
+            <button id="increaseFontSizeButton" tabindex="1" aria-label="Increase font size">
+                Increase Font Size
+            </button>
+            <button id="decreaseFontSizeButton" tabindex="2" aria-label="Decrease font size">
+                Decrease Font Size
+            </button>
+            <button id="resetButton" tabindex="3" aria-label="Reset accessibility settings">
+                Reset
+            </button>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2023 RentACar. All rights reserved.
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="modal" class="modal" aria-hidden="true" aria-modal="true">
+        <div class="modal-content">
+            <span id="modal-heading" class="close-btn" onclick="closeModal()" aria-label="Close modal">&times;</span>
+            <h2 tabindex="-1">Save Confirmation</h2>
+            <p>Your information has been saved successfully!</p>
+            <button id="closeButton" onclick="closeModal()" tabindex="0">Close</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Improved contrast */
+    color: #333; /* Text color for readability */
+}
+
+/* Header */
+.header {
+    background-color: #003399; /* Improved contrast */
+    color: #ffffff; /* Sufficient contrast for text */
+    padding: 20px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.nav-item {
+    margin-right: 20px;
+    position: relative;
+}
+.nav-item span {
+    color: #ffffff; /* Sufficient contrast for nav items */
+    text-decoration: none;
+    cursor: pointer;
+    outline: none; /* Avoid browser's default outline */
+}
+.nav-item span.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.nav-item span:hover, .nav-item span:focus {
+    font-weight: bold;
+    color: #ffcc00; /* Add hover and focus visibility */
+    outline: 2px dashed #ffcc00; /* Accessible focus indicator */
+}
+.sub-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #003399;
+    padding: 0;
+    margin: 0;
+}
+.sub-nav-item {
+    margin: 0;
+}
+.sub-nav-item span {
+    color: #ffffff;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+.nav-item:hover .sub-nav,
+.nav-item:focus-within .sub-nav {
+    display: block; /* Enable visibility with hover and keyboard focus */
+}
+
+/* Main Content */
+.main {
+    padding: 20px;
+    color: #333; /* Better readability */
+}
+.section-heading {
+    font-size: 28px;
+    color: #222; /* Improved contrast for section headings */
+}
+.content {
+    display: none;
+}
+.content.active {
+    display: block;
+}
+.sub-content {
+    display: none;
+}
+.sub-content.active {
+    display: block;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Label visibility */
+}
+.form-group input, .form-group textarea {
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #888; /* Darker gray for better contrast */
+    border-radius: 4px;
+}
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #0055cc; /* Brighter blue for better focus visibility */
+    box-shadow: 0 0 5px #0055cc; /* Enhanced visibility */
+    outline: none;
+}
+.submit-btn {
+    background-color: #003399; /* Sufficient contrast for buttons */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.submit-btn:hover, .submit-btn:focus {
+    background-color: #ffcc00;
+    color: #003399;
+    outline: 2px dashed #ffcc00; /* Focus indicator */
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+th {
+    background-color: #003399; /* Header contrast */
+    color: #ffffff; /* Header text color */
+}
+td {
+    color: #333; /* Table cell readability */
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9; /* Alternating row colors */
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row colors */
+}
+
+h3,h2,h4,p,label{
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+/* Footer */
+.footer {
+    background-color: #222; /* Sufficient contrast */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    color: #333; /* Modal text color */
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Focus and Accessibility Enhancements */
+a, button, input, textarea {
+    transition: all 0.3s ease; /* Smooth transitions for visual effects */
+}
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px dashed #ffcc00; /* Strong focus indicator for all interactive elements */
+}
+
+/* Floating button style */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.floating-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Accessibility options menu */
+.accessibility-options {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+.accessibility-options button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.accessibility-options button:hover {
+    background-color: #444;
+}
+
+/* Display the accessibility options when toggle button is clicked */
+.accessibility-options.show {
+    display: block;
+}
+
+/* High contrast theme */
+body.high-contrast {
+    background-color: black;
+    color: white;
+}
+
+/* Button contrast */
+button,
+.floating-btn {
+    color: #fff;
+    background-color: #007bff;
+}
+
+button:hover,
+.floating-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Development-Only Contrast Testing */
+.failed-contrast {
+    background-color: rgba(255, 0, 0, 0.2); /* Red highlight for elements with poor contrast */
+    border: 2px solid red; /* Red border for quick identification */
+}
